@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE tiles-definitions PUBLIC "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN" "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+<tiles-definitions>  
+	<!--<definition name="freemarker.test.definition" template="/freemarker/layout.ftl" templateType="freemarker">
+		<put-attribute name="title"  value="This is the title."/>
+		<put-attribute name="header" value="/freemarker/header.ftl" type="freemarker" />
+		<put-attribute name="body"   value="/freemarker/body.ftl" type="freemarker" />
+	</definition>-->
+	<definition name="default.template" template="/WEB-INF/templates/layout/layout.ftl">
+		<put-attribute name="header" value="/WEB-INF/templates/layout/header.ftl"/>
+		<put-attribute name="menu" value="/WEB-INF/templates/layout/menu.ftl"/>
+		<put-attribute name="body" value="/WEB-INF/templates/layout/body.ftl"/>
+		<put-attribute name="footer" value="/WEB-INF/templates/layout/footer.ftl"/>
+	</definition> 
+	<definition name="*.page" extends="default.template">
+		<put-attribute name="body" value="/WEB-INF/{1}.ftl" />
+	</definition>
+	<definition name="*/*.page" extends="default.template">
+		<put-attribute name="body" value="/WEB-INF/{1}/{2}.ftl" />
+	</definition>
+	<definition name="*/*/*.page" extends="default.template">
+		<put-attribute name="body" value="/WEB-INF/{1}/{2}/{3}.ftl" />
+	</definition>
+	<definition name="*/*/*/*.page" extends="default.template">
+		<put-attribute name="body" value="/WEB-INF/{1}/{2}/{3}/{4}.ftl" />
+	</definition>
+</tiles-definitions> 
